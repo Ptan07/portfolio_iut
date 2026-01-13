@@ -1,0 +1,7 @@
+@media print {
+
+    body {
+        background-color: black;
+    }
+/* Styles spécifiques à l'impression */
+}

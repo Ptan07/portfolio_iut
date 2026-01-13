@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio - Thomas Popelka</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Feuilles de style -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="default.css">
+    <link rel="stylesheet" href="print.css" media="print">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div class="header-image">
+            <!-- Mets ta vraie photo si tu veux -->
+            <img src="./image/LOGO_IUT.png" alt="Photo de Thomas Popelka">
+        </div>
+        <div class="header-info">
+            <h1>Thomas Popelka</h1>
+            <p>Étudiant en BUT Réseaux &amp; Télécommunications – Administration système &amp; cybersécurité</p>
+            <a href="cv.pdf" class="btn-cv" target="_blank">Télécharger mon CV</a>
+        </div>
+    </div>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#profil">Profil</a></li>
+            <li><a href="#competences">Compétences</a></li>
+            <li><a href="#logiciels">Logiciels</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <!-- PROFIL -->
+    <section id="profil" class="fade-in">
+        <h2>Profil</h2>
+        <p>
+            Étudiant en 2ème année de BUT Réseaux &amp; Télécommunications à l’IUT d’Annecy, 
+            je suis intéressé par l’administration système, les réseaux et la cybersécurité. 
+            Je recherche un stage de fin de 2ème année pour mettre en pratique mes compétences 
+            et contribuer à des projets concrets en environnement professionnel.
+        </p>
+    </section>
+
+    <!-- COMPETENCES -->
+    <section id="competences" class="fade-in">
+        <h2>Compétences</h2>
+
+        <div class="skills-grid">
+            <div class="card">
+                <h2>Administration réseau</h2>
+                <ul>
+                    <li>Configuration routeurs &amp; switches</li>
+                    <li>Réseaux LAN / VLAN</li>
+                    <li>Routage (OSPF)</li>
+                    <li>DNS, DHCP</li>
+                    <li>Analyse de trames (Wireshark)</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Administration système</h2>
+                <ul>
+                    <li>Windows Server (AD DS, GPO, DNS, DHCP)</li>
+                    <li>Linux (Debian, Ubuntu) – services de base</li>
+                    <li>Virtualisation (VMware, VirtualBox)</li>
+                    <li>Scripts d’automatisation (Bash, PowerShell)</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Développement &amp; scripting</h2>
+                <ul>
+                    <li>HTML5, CSS3, JavaScript</li>
+                    <li>PHP, bases de données (MySQL)</li>
+                    <li>Python (scripts et traitement de données)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOGICIELS -->
+    <section id="logiciels" class="fade-in">
+        <h2>Logiciels maîtrisés</h2>
+        <div class="skills-grid">
+            <div class="card">
+                <h2>Réseaux &amp; systèmes</h2>
+                <ul>
+                    <li>Windows Server</li>
+                    <li>Debian, Ubuntu</li>
+                    <li>VMware Workstation, VirtualBox</li>
+                    <li>Wireshark, Nmap</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Développement &amp; outils</h2>
+                <ul>
+                    <li>Visual Studio Code</li>
+                    <li>Git / GitHub</li>
+                    <li>PHP, MySQL</li>
+                    <li>Python, Bash, PowerShell</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Bureautique</h2>
+                <ul>
+                    <li>Word, Excel, PowerPoint</li>
+                    <li>Organisation de documents</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJETS -->
+    <section id="projets" class="fade-in">
+        <h2>Projets</h2>
+
+        <div class="card">
+            <h3>Site web de location de voitures</h3>
+            <p>
+                Développement d’une application web complète permettant de gérer les réservations, 
+                les utilisateurs et le parc de véhicules.
+            </p>
+            <ul>
+                <li>Technologies : PHP, MySQL, HTML5, CSS3, JavaScript</li>
+                <li>Dashboard administrateur et gestion des sessions</li>
+                <li>Sécurisation basique des formulaires et accès</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Automatisation Active Directory</h3>
+            <p>
+                Mise en place d’un environnement Windows Server avec création automatisée d’utilisateurs.
+            </p>
+            <ul>
+                <li>Scripts Bash et PowerShell pour créer et configurer une centaine de comptes</li>
+                <li>Configuration d’un serveur web Apache sous Debian</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Projet GreenWeatherCare</h3>
+            <p>
+                Conception d’une station météo connectée, avec collecte et visualisation de données en ligne.
+            </p>
+            <ul>
+                <li>Programmation Arduino et envoi des mesures vers Firebase</li>
+                <li>Interface web pour l’affichage des données météo</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="fade-in">
+        <h2>Contact</h2>
+        <p>
+            N’hésitez pas à me contacter pour un stage ou pour plus d’informations.
+        </p>
+        <ul>
+            <li>Email : thomas.popelka@etu.univ-smb.fr</li>
+            <li>Localisation : Annecy, France</li>
+        </ul>
+    </section>
+
+</main>
+
+<footer>
+    &copy; 2026 - Thomas Popelka - Portfolio Réseaux &amp; Cybersécurité
+</footer>
+
+<script>
+    // Optionnel : effet fade-in simple si tu veux
+    const faders = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    faders.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+/* Responsive Design */
+main
+{
+  position: relative;
+}
+
+/* Tablettes et écrans moyens */
+@media (max-width: 992px) {
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-info {
+    text-align: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  main {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  section {
+    padding: 1.5rem;
+  }
+
+  .skills-grid,
+  #competences-diverses .grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+/* Petits écrans / mobiles */
+@media (max-width: 768px) {
+  .header-image img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .header-info h1 {
+    font-size: 2rem;
+  }
+
+  .header-info p {
+    font-size: 1rem;
+  }
+
+  .card h2 {
+    font-size: 1.1rem;
+  }
+
+  .card ul li {
+    font-size: 0.9rem;
+  }
+
+  main {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  section {
+    padding: 1rem;
+  }
+}
+
+/* Très petits écrans / mobiles étroits */
+@media (max-width: 480px) {
+  .header-image img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .header-info h1 {
+    font-size: 1.6rem;
+  }
+
+  .header-info p {
+    font-size: 0.9rem;
+  }
+
+  .nav-links li a {
+    font-size: 0.9rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .skills-grid,
+  #competences-diverses .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
