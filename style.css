@@ -1,349 +1,182 @@
-/* Reset */
-* {
+@charset "UTF-8";
+
+/* Reset simple */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-/* Body global */
 body {
-  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: #0b0b10;           /* fond sombre gris bleuté */
-  color: #f5f5f7;
-  line-height: 1.6;
-}
-
-/* Liens */
-a {
-  color: #f97316;                      /* accent orange/cuivre */
-  text-decoration: none;
-}
-
-a:hover {
-  color: #fdba74;
-  text-decoration: underline;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #0d0b11;/* Couleur noir violette */
+  color: #f5edf9; /* texte en blanc  */
+  line-height: 1.5; /* augmentation de l'espace entre les lignes*/ 
 }
 
 /* Header */
-header {
-  background: linear-gradient(135deg, #111827, #020617);
-  padding: 2.5rem 1.5rem;
-  text-align: center;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.75);
+.header-main 
+{
+  top: 0; /*Pas d'espace avec la haut de la page */
+  background-color: #151021; /* Fond violet */
+  color: #e3c8ff; /*Couleur du texte en rose / violet claire*/
+  padding: 12px 16px; /* Ajoute un espace en bas du header*/
+  text-align: center;/* Align le texte au centre de la page */
+  border-bottom: 1px solid #3a274f; /* Bordure du bas solid de couleur violette et de 1px */
 }
 
-.header-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+.header-main h1 
+{
+  font-size: 1.6rem; /* Taille du titre*/
+  font-weight: bold;/* Titre en gras */
 }
 
-.header-image img {
-  width: 130px;
-  height: auto;
-  border-radius: 0;
-  border: none;
-  box-shadow: none;
+/* Sections principales */
+.carte-section, .exo-section, .prog-section 
+{
+  max-width: 900px;/* Largeur des blocs maximum */
+  margin: 24px auto;/* espace verticale et centrage horizontal*/
+  padding: 16px; /* espace en bas du bloc*/
+  background-color: #151021; /* Couleur violette*/
+  border-radius: 8px;/* arrondissement des angles */
+  border: 1px solid #3a274f; 
 }
 
-.header-info {
-  text-align: left;
-}
-
-.header-info h1 {
-  font-size: 2.4rem;
-  margin-bottom: 0.3rem;
-  color: #f9fafb;
-}
-
-.header-info p {
-  font-size: 1.1rem;
-  color: #9ca3af;
-  margin-bottom: 0.8rem;
-}
-
-/* Bouton CV */
-.btn-cv {
-  display: inline-block;
-  padding: 0.5rem 1.1rem;
-  background-color: #f97316;          /* orange cuivre */
-  color: #0b0b10;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
-  border: none;
-}
-
-.btn-cv:hover {
-  background-color: #ea580c;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.7);
-}
-
-/* Navigation */
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.2rem;
-  justify-content: center;
-  margin-top: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.nav-links li a {
-  color: #e5e7eb;
-  font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-}
-
-.nav-links li a:hover {
-  color: #f97316;
-}
-
-/* Main */
-main {
-  padding: 2.5rem 1.5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-/* Sections */
-section {
-  background-color: #111827;          /* blocs gris anthracite */
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
-}
-
-section + section {
-  margin-top: 0.5rem;
-}
-
-/* Titres */
-h2 {
-  color: #f9fafb;
+/* Titres de section */
+.carte,
+.exo,
+.prog {
   font-size: 1.4rem;
-  margin-bottom: 1.2rem;
-  border-left: 4px solid #f97316;     /* barre accent orange */
-  padding-left: 0.6rem;
+  font-weight: 700;
+  color: #c792ff;           /* violet clair */
+  text-align: center;
+  margin-bottom: 16px;
 }
 
-h3 {
-  color: #f9fafb;
-  font-size: 1.15rem;
-  margin-bottom: 0.6rem;
+/* Image centrale */
+.image-salle {
+  max-width: 900px;
+  margin: 24px auto;
+  text-align: center;
 }
 
-/* Paragraphes */
-section p {
-  margin-bottom: 0.8rem;
-  color: #d1d5db;
+.image-salle img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  border-radius: 8px;
 }
 
-/* Listes */
-ul {
-  list-style: square;
-  padding-left: 1.5rem;
+/* Formulaires (recherche exos / salles) */
+.carte-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 16px;
 }
 
-ul li {
-  margin: 0.3rem 0;
+input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #3a274f;
+  background-color: #0d0b11;
+  color: #f5edf9;
+  min-width: 180px;
 }
 
-/* Grille de compétences / logiciels */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+input::placeholder {
+  color: #9b86b8;
 }
 
-/* Cartes génériques */
-.card {
-  background-color: #020617;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border 0.18s ease;
-  border: 1px solid rgba(55, 65, 81, 0.9);
+/* Boutons généraux + PWA */
+button,
+.btn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  background-color: #6a0dad;   /* violet principal */
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.95);
-  border-color: #f97316;
+button:hover,
+.btn:hover {
+  background-color: #53108f;   /* violet un peu plus foncé */
 }
 
-.card h2 {
-  border-left: none;
-  padding-left: 0;
-  margin-bottom: 0.9rem;
-  font-size: 1.2rem;
+button:disabled {
+  background-color: #4b445a;
+  cursor: not-allowed;
 }
 
-.card ul {
-  list-style: square;
-  padding-left: 1.4rem;
+/* Résultats d'exercices */
+#resultats {
+  margin-top: 8px;
 }
 
-.card ul li {
-  margin: 0.3rem 0;
+#resultats ul {
+  list-style: none;
+}
+
+#resultats li {
+  margin-bottom: 8px;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #1a1327;
+  border-left: 3px solid #8e44ad;  /* barre violette */
+}
+
+/* Liens de navigation */
+nav a,li a 
+{
+  color: #c792ff;
+  text-decoration: none;
   font-size: 0.95rem;
+  margin-right: 12px;
 }
 
-/* Section compétences diverses (si utilisée) */
-#competences-diverses {
-  background-color: #020617;
-  padding: 1.8rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.9);
+/* Carte Leaflet */
+#laMap 
+{
+  height: 50vh;
+  max-width: 900px;
+  width: 100%;
+  margin: 24px auto;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid #3a274f;
 }
 
-#competences-diverses h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  border-left: none;
-  padding-left: 0;
+/* Boutons PWA */
+#install_button,
+#reload_button {
+  margin: 12px 6px;
 }
 
-/* Grille 3 colonnes interne optionnelle */
-#competences-diverses .grid-3 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.3rem;
-}
-
-/* Conteneur multi-colonnes optionnel */
-.container {
-  column-count: 3;
-  column-gap: 1.5rem;
-  column-width: 220px;
-}
-
-/* Effet fade-in (utilisé dans le HTML) */
-.fade-in {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 1.3rem 1rem;
-  background-color: #020617;
-  font-size: 0.9rem;
-  color: #9ca3af;
-  margin-top: 1.5rem;
-  border-top: 1px solid #111827;
-}
-
-/* Responsive - écrans moyens */
-@media (max-width: 992px) {
-  .header-container {
-      flex-direction: column;
-      text-align: center;
-  }
-
-  .header-info {
-      text-align: center;
-  }
-
-  main {
-      padding: 2rem 1.2rem;
-      gap: 2rem;
-  }
-
-  section {
-      padding: 1.7rem;
-  }
-}
-
-/* Responsive - tablettes / petits écrans */
+/* Responsive */
 @media (max-width: 768px) {
-  .header-image img {
-      width: 100px;
-      height: 100px;
+  .carte-section,
+  .exo-section,
+  .prog-section {
+    margin: 16px 8px;
+    padding: 12px;
   }
 
-  .header-info h1 {
-      font-size: 2rem;
+  .header-main h1 {
+    font-size: 1.3rem;
   }
 
-  .header-info p {
-      font-size: 1rem;
+  button,
+  .btn {
+    width: 100%;
+    max-width: 260px;
   }
 
-  .nav-links {
-      gap: 0.6rem;
-  }
-
-  .nav-links li a {
-      font-size: 0.9rem;
-  }
-
-  main {
-      padding: 1.5rem 1rem;
-      gap: 1.5rem;
-  }
-
-  section {
-      padding: 1.4rem;
-  }
-
-  .card {
-      padding: 1.2rem;
-  }
-}
-
-/* Responsive - très petits écrans */
-@media (max-width: 480px) {
-  .header-image img {
-      width: 80px;
-      height: 80px;
-  }
-
-  .header-info h1 {
-      font-size: 1.7rem;
-  }
-
-  .header-info p {
-      font-size: 0.9rem;
-  }
-
-  .nav-links li a {
-      font-size: 0.85rem;
-  }
-
-  main {
-      padding: 1.2rem 0.7rem;
-      gap: 1.2rem;
-  }
-
-  section {
-      padding: 1.1rem;
-  }
-
-  .card {
-      padding: 1rem;
-  }
-
-  .skills-grid,
-  #competences-diverses .grid-3 {
-      grid-template-columns: 1fr;
+  input {
+    width: 100%;
   }
 }

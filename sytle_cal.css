@@ -1,0 +1,243 @@
+/* Format principal du calendrier */
+#cldT {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* barre au-dessus du calendrier */
+#avant-apres {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #151021;                 /* fond sombre violet */
+  border-radius: 4px 4px 0 0;
+  padding: 8px 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* titre du mois */
+#titre-mois {
+  text-align: center;
+  flex: 1;
+  font-weight: 600;
+  color: #e3c8ff;                      /* texte violet clair */
+}
+
+/* boutons Avant / Après */
+.cldbtn {
+  width: 40px;
+  height: 32px;
+  border-radius: 4px;
+  border: 1px solid #3a274f;
+  background-color: #3a274f;
+  color: #f5edf9;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  font-weight: 600;
+}
+
+.cldbtn:hover {
+  background-color: #4c3170;
+  transform: translateY(-1px);
+}
+
+/* grille du calendrier */
+#calendrier {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: #0d0b11;
+  border-radius: 0 0 4px 4px;
+  border: 1px solid #3a274f;
+  border-top: none;
+}
+
+/* case jour */
+.case {
+  min-height: 80px;
+  padding: 6px;
+  border: 1px solid #271a3a;
+  box-sizing: border-box;
+  text-align: right;
+  font-size: 0.9rem;
+  color: #d4c0ff;
+  background-color: #151021;
+  transition: background-color 0.15s, transform 0.1s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* survol d'une case */
+.case:hover {
+  background-color: #1f1630;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(18, 9, 36, 0.7);
+}
+
+/* case jour avec exercices */
+.case.jour-avec-exercices {
+  background-color: #211733;
+  font-weight: bold;
+  border-left: 3px solid #8e44ad;   /* violet accent */
+}
+
+/* responsive */
+@media (max-width: 600px) {
+  #cldT {
+    margin: 20px 10px;
+  }
+
+  .case {
+    min-height: 40px;
+    font-size: 0.75rem;
+  }
+
+  #avant-apres {
+    padding: 6px 10px;
+  }
+}
+
+/* POPUP MENU */
+.menu-jour-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #151021;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(5, 3, 12, 0.85);
+  z-index: 1000;
+  min-width: 400px;
+  max-width: 90%;
+  max-height: 80vh;
+  overflow: auto;
+  border: 2px solid #8e44ad;
+  color: #f5edf9;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.menu-jour-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.menu-jour-header h3 {
+  margin: 0;
+  color: #c792ff;
+}
+
+.btn-fermer-menu {
+  background: #6a0dad;
+  padding: 5px 15px;
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* textes du popup */
+.titre-exercices-programmes {
+  color: #c792ff;
+  margin-top: 0;
+}
+
+.liste-exercices-jour {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+.exercice-jour-item {
+  background: #0d0b11;
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 4px;
+  border-left: 3px solid #8e44ad;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.exercice-bodypart {
+  color: #d4c0ff;
+  margin-left: 5px;
+  font-size: 0.9em;
+}
+
+.btn-retirer-exercice {
+  background: #6a0dad;
+  padding: 3px 10px;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.aucun-exercice {
+  color: #c792ff;
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+}
+
+.separateur-menu-jour {
+  border-color: #8e44ad;
+  margin: 15px 0;
+}
+
+/* zone ajout exercice */
+.titre-ajout-exercice {
+  color: #c792ff;
+}
+
+.zone-recherche-exercice {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.input-muscle-recherche {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #8e44ad;
+  background: #0d0b11;
+  color: #fff;
+  font-size: 14px;
+}
+
+.input-muscle-recherche::placeholder {
+  color: #9b86b8;
+}
+
+.btn-recherche-exercice {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  background: #6a0dad;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-recherche-exercice:hover {
+  background: #53108f;
+}
+
+/* overlay fond du popup */
+.overlay-menu-jour {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(5, 3, 12, 0.9);
+  z-index: 999;
+}

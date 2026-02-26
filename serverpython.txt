@@ -1,0 +1,8 @@
+python -m http.server 8000
+Dans ton navigateur, ouvre :
+
+text
+http://localhost:8000
+
+
+clé API : 58d6fe6fcbmshb7dde4d9a431fd3p12df26jsn755448a8c9b5
