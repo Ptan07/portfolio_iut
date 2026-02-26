@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Test API PWA</title>
+  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="shortcut icon" href="favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="GYM" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="stylesheet" href="./bootstrap/bootstrap-5.3.8-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sytle_cal.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <script defer src="js/pwa.js"></script>
+</head>
+
+<body>
+  <header class="header-main">
+        <h1>Fitness PWA</h1>
+        <hr >
+        <nav>
+          <a href="#exercices">Exercices</a>
+          <a href="#programme">Programme</a>
+        </nav>
+  </header>
+    <section class="image-salle">
+      <img src="./img/salle-de-sport.webp"/>
+    </section>
+
+    <hr>
+
+    <section class="carte-section">
+      <h2 class="carte">Carte des salles de sport</h2>
+      <div class="carte-form">
+        <input id="ville" type="text" placeholder="Choisissez une ville">
+        <button id="chercheville">Rechercher</button>
+      </div>
+        <div id="laMap"></div>
+    </section>
+
+    <section class="exo-section">
+    <h3 class="exo">Exercice</h3>
+    <div id="exercices">
+        <input id="exerce" type="text" placeholder="Muscle à travailler">
+        <button id="recherche">Rechercher</button>
+        <div id="resultats"></div>
+      </div>
+    </section>
+    <section class="historique">
+        <div class="histo"  id="historique"></div>
+      </section>
+      <hr>
+        <section class="prog-section">
+          <h4 class="prog">Programme</h4>
+          <button id="btn-cree">Créer mon programme</button>
+          <button id="btn-affiche">Voir le programme proposé</button>
+          <div id="programme" class="mt-2"></div>
+        </section>
+        <div id="cldT">
+          <div id="avant-apres">
+            <button id="avant" class="cldbtn">&lt;</button>
+            <div id="titre-mois"></div>
+            <button id="apres" class="cldbtn">&gt;</button>
+          </div>
+
+        <!-- le JS remplie c case là -->
+      <div id="calendrier"></div>
+      </div>
+
+      <button id="install_button" disabled >Installer</button>
+<button id="reload_button" disabled >Reload</button>
+
+  </body>
+  </html>
