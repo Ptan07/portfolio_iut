@@ -1,79 +1,218 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Test API PWA</title>
-  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
-  <link rel="shortcut icon" href="favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
-  <meta name="apple-mobile-web-app-title" content="GYM" />
-  <link rel="manifest" href="site.webmanifest" />
-  <link rel="stylesheet" href="./bootstrap/bootstrap-5.3.8-dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/sytle_cal.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script defer src="js/pwa.js"></script>
+    <meta charset="UTF-8">
+    <title>Portfolio - Thomas Popelka</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Feuilles de style -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="default.css">
+    <link rel="stylesheet" href="print.css" media="print">
 </head>
-
 <body>
-  <header class="header-main">
-        <h1>Fitness PWA</h1>
-        <hr >
-        <nav>
-          <a href="#exercices">Exercices</a>
-          <a href="#programme">Programme</a>
-        </nav>
-  </header>
-    <section class="image-salle">
-      <img src="./img/salle-de-sport.webp"/>
+
+<header>
+    <div class="header-container">
+        <div class="header-image">
+            <!-- Mets ta vraie photo si tu veux -->
+            <img src="./image/LOGO_IUT.png" alt="Photo de Thomas Popelka">
+        </div>
+        <div class="header-info">
+            <h1>Thomas Popelka</h1>
+            <p>Étudiant en BUT Réseaux &amp; Télécommunications – Administration système &amp; cybersécurité</p>
+            <a href="cv.pdf" class="btn-cv" target="_blank">Télécharger mon CV</a>
+        </div>
+    </div>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#profil">Profil</a></li>
+            <li><a href="#competences">Compétences</a></li>
+            <li><a href="#logiciels">Logiciels</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <!-- PROFIL -->
+    <section id="profil" class="fade-in">
+        <h2>Profil</h2>
+        <p>
+            Étudiant en 2ème année de BUT Réseaux &amp; Télécommunications à l’IUT d’Annecy, 
+            je suis intéressé par l’administration système, les réseaux et la cybersécurité. 
+            Je recherche un stage de fin de 2ème année pour mettre en pratique mes compétences 
+            et contribuer à des projets concrets en environnement professionnel.
+        </p>
     </section>
 
-    <hr>
+    <!-- COMPETENCES -->
+    <section id="competences" class="fade-in">
+        <h2>Compétences</h2>
 
-    <section class="carte-section">
-      <h2 class="carte">Carte des salles de sport</h2>
-      <div class="carte-form">
-        <input id="ville" type="text" placeholder="Choisissez une ville">
-        <button id="chercheville">Rechercher</button>
-      </div>
-        <div id="laMap"></div>
+        <div class="skills-grid">
+            <div class="card">
+                <h2>Administration réseau</h2>
+                <ul>
+                    <li>Configuration routeurs &amp; switches</li>
+                    <li>Réseaux LAN / VLAN</li>
+                    <li>Routage (OSPF)</li>
+                    <li>DNS, DHCP</li>
+                    <li>Analyse de trames (Wireshark)</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Administration système</h2>
+                <ul>
+                    <li>Windows Server (AD DS, GPO, DNS, DHCP)</li>
+                    <li>Linux (Debian, Ubuntu) – services de base</li>
+                    <li>Virtualisation (VMware, VirtualBox)</li>
+                    <li>Scripts d’automatisation (Bash, PowerShell)</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Développement &amp; scripting</h2>
+                <ul>
+                    <li>HTML5, CSS3, JavaScript</li>
+                    <li>PHP, bases de données (MySQL)</li>
+                    <li>Python (scripts et traitement de données)</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
-    <section class="exo-section">
-    <h3 class="exo">Exercice</h3>
-    <div id="exercices">
-        <input id="exerce" type="text" placeholder="Muscle à travailler">
-        <button id="recherche">Rechercher</button>
-        <div id="resultats"></div>
-      </div>
+    <!-- LOGICIELS -->
+    <section id="logiciels" class="fade-in">
+        <h2>Logiciels maîtrisés</h2>
+        <div class="skills-grid">
+            <div class="card">
+                <h2>Réseaux &amp; systèmes</h2>
+                <ul>
+                    <li>Windows Server</li>
+                    <li>Debian, Ubuntu</li>
+                    <li>VMware Workstation, VirtualBox</li>
+                    <li>Wireshark, Nmap</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Développement &amp; outils</h2>
+                <ul>
+                    <li>Visual Studio Code</li>
+                    <li>Git / GitHub</li>
+                    <li>PHP, MySQL</li>
+                    <li>Python, Bash, PowerShell</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Bureautique</h2>
+                <ul>
+                    <li>Word, Excel, PowerPoint</li>
+                    <li>Organisation de documents</li>
+                </ul>
+            </div>
+        </div>
     </section>
-    <section class="historique">
-        <div class="histo"  id="historique"></div>
-      </section>
-      <hr>
-        <section class="prog-section">
-          <h4 class="prog">Programme</h4>
-          <button id="btn-cree">Créer mon programme</button>
-          <button id="btn-affiche">Voir le programme proposé</button>
-          <div id="programme" class="mt-2"></div>
-        </section>
-        <div id="cldT">
-          <div id="avant-apres">
-            <button id="avant" class="cldbtn">&lt;</button>
-            <div id="titre-mois"></div>
-            <button id="apres" class="cldbtn">&gt;</button>
-          </div>
 
-        <!-- le JS remplie c case là -->
-      <div id="calendrier"></div>
-      </div>
+    <!-- PROJETS -->
+    <section id="projets" class="fade-in">
+        <h2>Projets</h2>
 
-      <button id="install_button" disabled >Installer</button>
-<button id="reload_button" disabled >Reload</button>
+        <div class="card">
+            <h3>Site web de location de voitures</h3>
+            <p>
+                Développement d’une application web complète permettant de gérer les réservations, 
+                les utilisateurs et le parc de véhicules.
+            </p>
+            <ul>
+                <li>Technologies : PHP, MySQL, HTML, CSS, JavaScript</li>
+                <li>Dashboard administrateur et gestion des sessions</li>
+                <li>Sécurisation basique des formulaires et accès</li>
+            </ul>
+        </div>
 
-  </body>
-  </html>
+        <div class="card">
+            <h3>Automatisation Active Directory</h3>
+            <p>
+                Mise en place d’un environnement Windows Server avec création automatisée d’utilisateurs.
+            </p>
+            <ul>
+                <li>Scripts Bash et PowerShell pour créer et configurer une centaine de comptes</li>
+                <li>Configuration d’un serveur web Apache sous Debian</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Projet GreenWeatherCare</h3>
+            <p>
+                Conception d’une station météo connectée, avec collecte et visualisation de données en ligne.
+            </p>
+            <ul>
+                <li>Programmation Arduino et envoi des mesures vers Firebase</li>
+                <li>Interface web pour l’affichage des données météo</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Projet Site Web :</h3>
+            <p>
+                Conception d'une application web installable sur téléphone : application de fitness avec recherche par partie du corps, exercices proposés en fonction de la partie recherchée, et carte pour localiser les salles de sport.
+            </p>
+            <ul>
+                <li>Programmation : JavaScript, HTML, CSS, APIs externes (ExerciseDB, Data ES Sports, Nominatim)</li>
+                <li>Interface web responsive avec prompt d'installation PWA sur mobile</li>
+                <li>Manifest.json pour favicon et icônes (maskable), service worker pour cache offline et mise à jour des versions</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Projet Déploiement WiFi</h3>
+            <p>
+                Mise en place d'une couverture WiFi optimale via simulation sur Matplotlib.
+            </p>
+            <ul>
+                <li>Programmation Python : calcul des fréquences porteuses et des FFT.</li>
+                <li>Calcul d'atténuation pour obtenir la meilleure couverture WiFi possible.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="fade-in">
+        <h2>Contact</h2>
+        <p>
+            N’hésitez pas à me contacter pour un stage ou pour plus d’informations.
+        </p>
+        <ul>
+            <li>Email : thomas.popelka@etu.univ-smb.fr</li>
+            <li>Localisation : Annecy, France</li>
+        </ul>
+    </section>
+
+</main>
+
+<footer>
+    &copy; 2026 - Thomas Popelka - Portfolio Réseaux &amp; Cybersécurité
+</footer>
+
+<script>
+    // Optionnel : effet fade-in simple si tu veux
+    const faders = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    faders.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
