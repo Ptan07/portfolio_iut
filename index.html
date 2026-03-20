@@ -15,7 +15,6 @@
 <header>
     <div class="header-container">
         <div class="header-image">
-            <!-- Mets ta vraie photo si tu veux -->
             <img src="LOGO_IUT.png" alt="Photo de Thomas Popelka">
         </div>
         <div class="header-info">
@@ -29,6 +28,7 @@
         <ul class="nav-links">
             <li><a href="#profil">Profil</a></li>
             <li><a href="#competences">Compétences</a></li>
+            <li><a href="#certifications">Certifications</a></li>
             <li><a href="#experiences">Expériences</a></li>
             <li><a href="#logiciels">Logiciels</a></li>
             <li><a href="#projets">Projets</a></li>
@@ -43,8 +43,8 @@
     <section id="profil" class="fade-in">
         <h2>Profil</h2>
         <p>
-            Étudiant en 2ème année de BUT Réseaux & Télécommunications à l’IUT d’Annecy, 
-            je suis intéressé par l’administration système, les réseaux et la cybersécurité. 
+            Étudiant en 2ème année de BUT Réseaux & Télécommunications à l'IUT d'Annecy, 
+            je suis intéressé par l'administration système, les réseaux et la cybersécurité. 
             Je recherche un stage de fin de 2ème année pour mettre en pratique mes compétences 
             et contribuer à des projets concrets en environnement professionnel.
         </p>
@@ -72,7 +72,7 @@
                     <li>Windows Server (AD DS, GPO, DNS, DHCP)</li>
                     <li>Linux (Debian, Ubuntu) – services de base</li>
                     <li>Virtualisation (VMware, VirtualBox)</li>
-                    <li>Scripts d’automatisation (Bash, PowerShell)</li>
+                    <li>Scripts d'automatisation (Bash, PowerShell)</li>
                 </ul>
             </div>
 
@@ -87,8 +87,58 @@
         </div>
     </section>
 
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" class="fade-in">
+        <h2>Certifications</h2>
+        <p>Certifications obtenues dans le cadre de ma formation et en autonomie.</p>
 
-      <!-- LOGICIELS -->
+        <div class="projects-grid">
+
+            <div class="card">
+                <h3>🛡️ MOOC SecNumacadémie – ANSSI</h3>
+                <p>
+                    Formation en ligne proposée par l'Agence Nationale de la Sécurité des Systèmes d'Information (ANSSI), 
+                    couvrant les fondamentaux de la cybersécurité : sécurité des systèmes, des réseaux, 
+                    gestion des incidents et bonnes pratiques.
+                </p>
+                <ul>
+                    <li>Organisme : ANSSI (Agence Nationale)</li>
+                    <li>Thèmes : Sécurité SI, cryptographie, gestion des risques</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🌐 CCNA 1 – Introduction to Networks</h3>
+                <p>
+                    Première certification du parcours Cisco Networking Academy, validant les bases 
+                    des réseaux informatiques : modèles OSI/TCP-IP, adressage IP, routage et commutation.
+                </p>
+                <ul>
+                    <li>Organisme : Cisco Networking Academy</li>
+                    <li>Thèmes : Réseaux, adressage IPv4/IPv6, protocoles de base</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🔥 Certification Stormshield Network Security</h3>
+                <p>
+                    Certification officielle Stormshield validant les compétences en administration 
+                    et configuration de pare-feux SNS (Stormshield Network Security) : règles de filtrage, 
+                    VPN, supervision et politique de sécurité réseau.
+                </p>
+                <ul>
+                    <li>Organisme : Stormshield</li>
+                    <li>Thèmes : Firewall, VPN, politique de sécurité réseau</li>
+                </ul>
+                <a href="certification_stormshield.pdf" class="btn-cv" target="_blank" style="display:inline-block; margin-top: 10px;">
+                    📄 Voir le certificat (PDF)
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LOGICIELS -->
     <section id="logiciels" class="fade-in">
         <h2>Logiciels maîtrisés</h2>
         <div class="skills-grid">
@@ -121,8 +171,8 @@
             </div>
         </div>
     </section>
-    
-    <!-- EXPÉRIENCES (NOUVELLE SECTION) -->
+
+    <!-- EXPÉRIENCES -->
     <section id="experiences" class="fade-in">
         <h2>Expériences Académiques</h2>
         <p>Projets réalisés dans le cadre de ma formation BUT Réseaux et Télécommunications.</p>
@@ -157,33 +207,32 @@
         </div>
     </section>
 
-  
-
-    <!-- PROJETS (MISE À JOUR LÉGÈRE) -->
+    <!-- PROJETS -->
     <section id="projets" class="fade-in">
         <h2>Autres Projets Personnels</h2>
 
         <div class="card">
             <h3>Automatisation Active Directory</h3>
             <p>
-                Mise en place d’un environnement Windows Server avec création automatisée d’utilisateurs.
+                Mise en place d'un environnement Windows Server avec création automatisée d'utilisateurs.
             </p>
             <ul>
                 <li>Scripts Bash et PowerShell pour créer et configurer une centaine de comptes</li>
-                <li>Configuration d’un serveur web Apache sous Debian</li>
+                <li>Configuration d'un serveur web Apache sous Debian</li>
             </ul>
         </div>
 
         <div class="card">
             <h3>Projet GreenWeatherCare</h3>
             <p>
-                Conception d’une station météo connectée, avec collecte et visualisation de données en ligne.
+                Conception d'une station météo connectée, avec collecte et visualisation de données en ligne.
             </p>
             <ul>
                 <li>Programmation Arduino et envoi des mesures vers Firebase</li>
-                <li>Interface web pour l’affichage des données météo</li>
+                <li>Interface web pour l'affichage des données météo</li>
             </ul>
         </div>
+
         <div class="card">
             <h3>Projet Site Web :</h3>
             <p>
@@ -212,12 +261,12 @@
     <section id="contact" class="fade-in">
         <h2>Contact</h2>
         <p>
-            N’hésitez pas à me contacter pour un stage ou pour plus d’informations.
+            N'hésitez pas à me contacter pour un stage ou pour plus d'informations.
         </p>
         <ul>
             <li>Email : Thomas.Popelka@etu.univ-smb.fr</li>
             <li>Téléphone : 06 43 64 41 03</li>
-            <li>Permis B </li>
+            <li>Permis B</li>
             <li>Localisation : Annecy, France</li>
         </ul>
     </section>
@@ -229,7 +278,6 @@
 </footer>
 
 <script>
-    // Optionnel : effet fade-in simple si tu veux
     const faders = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -244,4 +292,3 @@
 
 </body>
 </html>
-
