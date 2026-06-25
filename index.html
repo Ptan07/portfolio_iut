@@ -26,13 +26,13 @@
             <h1>Thomas Popelka</h1>
 
             <h2>
-                Administrateur Systèmes, Réseaux & Cybersécurité
+                Recherche Alternance Administrateur Systèmes, Réseaux & Cybersécurité
             </h2>
 
             <p>
-                Étudiant en BUT Réseaux & Télécommunications.
-                Passionné par l'administration système,
-                les infrastructures réseau et la sécurité informatique.
+                Je recherche une alternance en Administration Systèmes,
+            Réseaux ou Cybersécurité à partir de septembre 2026
+            dans la région Auvergne-Rhône-Alpes ou en Suisse.
             </p>
 
             <div class="hero-buttons">
@@ -69,7 +69,33 @@
 </header>
 
 <main>
+<section class="stats-section fade-in">
 
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <span class="counter" data-target="3">0</span>
+            <p>Années d'études IT</p>
+        </div>
+
+        <div class="stat-card">
+            <span class="counter" data-target="15">0</span>
+            <p>Projets réalisés</p>
+        </div>
+
+        <div class="stat-card">
+            <span class="counter" data-target="4">0</span>
+            <p>Certifications</p>
+        </div>
+
+        <div class="stat-card">
+            <span class="counter" data-target="1">0</span>
+            <p>Expérience en entreprise</p>
+        </div>
+
+    </div>
+
+</section>
     <!-- PROFIL -->
     <section id="profil" class="fade-in">
         <h2>Profil</h2>
@@ -412,6 +438,21 @@ const observerCounter = new IntersectionObserver(entries => {
 });
 
 counters.forEach(counter => observerCounter.observe(counter));
+</script>
+    <script>
+
+const nav = document.querySelector("nav");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 100){
+        nav.classList.add("sticky");
+    }else{
+        nav.classList.remove("sticky");
+    }
+
+});
+
 </script>
 </body>
 </html>
