@@ -35,6 +35,7 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
+    
 </header>
 
 <main>
@@ -354,6 +355,33 @@
 
     faders.forEach(el => observer.observe(el));
 </script>
+<script>
+const counters = document.querySelectorAll(".counter");
 
+const observerCounter = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+
+            const target = +entry.target.dataset.target;
+            let current = 0;
+
+            const update = () => {
+                current += Math.ceil(target / 50);
+
+                if(current >= target){
+                    entry.target.textContent = target;
+                }else{
+                    entry.target.textContent = current;
+                    requestAnimationFrame(update);
+                }
+            };
+
+            update();
+        }
+    });
+});
+
+counters.forEach(counter => observerCounter.observe(counter));
+</script>
 </body>
 </html>
