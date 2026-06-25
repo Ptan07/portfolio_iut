@@ -543,3 +543,13 @@ footer {
     width:3px;
     background:#f97316;
 }
+nav.sticky{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    background:#020617;
+    backdrop-filter:blur(10px);
+    box-shadow:0 5px 20px rgba(0,0,0,.4);
+}
