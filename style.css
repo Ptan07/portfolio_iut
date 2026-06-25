@@ -16,15 +16,15 @@ html {
    Bleu nuit profond (sérieux, tech) + accent doré/cuivré désaturé (premium)
    ========================================================================== */
 :root {
-  --bg-body:        #0f1420;   /* fond général bleu-nuit très sombre */
+  --bg-body:        #EBFAFA;   /* fond général bleu-nuit très sombre */
   --bg-section:      #161d2e;   /* blocs / sections */
   --bg-card:         #1c2438;   /* cartes */
   --bg-card-alt:     #11172a;   /* variante plus sombre (stat-card, timeline) */
   --border-subtle:   rgba(148, 163, 184, 0.12);
 
-  --accent:          #c08a3e;   /* doré/cuivré désaturé — accent principal */
-  --accent-hover:    #d6a35a;   /* doré plus clair au survol */
-  --accent-dark:     #9c6f2f;   /* doré foncé pour fonds clairs */
+  --accent:          #4CACAE;   /* doré/cuivré désaturé — accent principal */
+  --accent-hover:    #4CACAE;   /* doré plus clair au survol */
+  --accent-dark:     #4CACAE;   /* doré foncé pour fonds clairs */
 
   --text-heading:    #eef1f6;   /* titres */
   --text-body:       #aab3c2;   /* texte courant */
@@ -81,8 +81,6 @@ header {
 .header-image img {
   width: 110px;
   height: auto;
-  border-radius: 50%;
-  border: 2px solid var(--border-subtle);
   box-shadow: none;
 }
 
