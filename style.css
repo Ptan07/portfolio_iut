@@ -348,7 +348,7 @@ footer {
   }
 }
 .experience-card{
-    border-left:4px solid #00bfff;
+    border-left:4px solid;
     transition:0.3s;
 }
 
