@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -242,7 +243,43 @@
         </div>
     </section>
 
-    <!-- EXPÉRIENCE PROFESSIONNELLE -->
+    <!-- EXPÉRIENCES -->
+    <section id="experiences" class="fade-in">
+        <h2>Expériences Académiques</h2>
+        <p>Projets réalisés dans le cadre de ma formation BUT Réseaux et Télécommunications.</p>
+
+        <div class="projects-grid">
+            <div class="card">
+                <h3>Lab de Pentest Active Directory GOAD (2025)</h3>
+                <p>Mise en place d'un lab vulnérable (Game Of Active Directory) pour pratiquer attaques, élévation de privilèges et mouvements latéraux.</p>
+                <ul>
+                    <li>Partenaire : Orange Cyberdefense</li>
+                    <li>Compétences : Analyse CVE, post-exploitation, défense AD</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Infrastructure Windows Server (2025)</h3>
+                <p>Déploiement complet : serveurs CORS/fichiers, DNS/DHCP, Active Directory avec OU et GPO.</p>
+                <ul>
+                    <li>Gestion droits d'accès et stratégies de groupe</li>
+                    <li>Environnement multi-serveurs</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Site web dynamique de location de voitures (2024)</h3>
+                <p>Application web pour gestion réservations, utilisateurs et parc véhicules, avec dashboard admin.</p>
+                <ul>
+                    <li>Technos : PHP, MySQL, HTML/CSS/JS</li>
+                    <li>Gestion sessions et formulaires sécurisés</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- Éxprérience Professionnel -->
+  
+ <!-- EXPÉRIENCE PROFESSIONNELLE -->
     <section id="experience-pro" class="fade-in">
         <h2>Expérience Professionnelle</h2>
 
@@ -404,3 +441,94 @@
                 Mise en place d'une couverture WiFi optimale via simulation sur Matplotlib.
             </p>
             <ul>
+                <li>Programmation Python : calcul des fréquences porteuses et des FFT.</li>
+                <li>Calcul d'atténuation pour obtenir la meilleure couverture WiFi possible.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="fade-in">
+        <h2>Contact</h2>
+        <p>
+            N'hésitez pas à me contacter pour un stage ou pour plus d'informations.
+        </p>
+        <ul>
+            <li>Email : Thomas.Popelka@etu.univ-smb.fr</li>
+            <li>Téléphone : 06 43 64 41 03</li>
+            <li>Permis B</li>
+            <li>Localisation : Annecy, France</li>
+            <li>
+                <a href="https://www.linkedin.com/in/thomas-popelka-9a8055388" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="#0A66C2" aria-hidden="true">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    LinkedIn
+                </a>
+            </li>
+        </ul>
+    </section>
+
+</main>
+
+<footer>
+    &copy; 2026 - Thomas Popelka - Portfolio Réseaux & Cybersécurité
+</footer>
+
+<script>
+    const faders = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    faders.forEach(el => observer.observe(el));
+</script>
+<script>
+const counters = document.querySelectorAll(".counter");
+
+const observerCounter = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+
+            const target = +entry.target.dataset.target;
+            let current = 0;
+
+            const update = () => {
+                current += Math.ceil(target / 50);
+
+                if(current >= target){
+                    entry.target.textContent = target;
+                }else{
+                    entry.target.textContent = current;
+                    requestAnimationFrame(update);
+                }
+            };
+
+            update();
+        }
+    });
+});
+
+counters.forEach(counter => observerCounter.observe(counter));
+</script>
+    <script>
+
+const nav = document.querySelector("nav");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 100){
+        nav.classList.add("sticky");
+    }else{
+        nav.classList.remove("sticky");
+    }
+
+});
+
+</script>
+</body>
+</html>
