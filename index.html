@@ -9,19 +9,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0E1419;
-    --bg-raised:#141C22;
-    --bg-raised-2:#182028;
-    --line:#26323b;
-    --line-soft:#1c262e;
-    --text:#E9EDEF;
-    --text-dim:#93A1AB;
-    --text-faint:#5C6B74;
-    --amber:#E8A33D;
-    --amber-dim:#8a6427;
-    --teal:#5FB3C7;
-    --teal-dim:#2f5762;
-    --danger:#c96a4f;
+    --bg:#F3F6F5;
+    --bg-raised:#FFFFFF;
+    --bg-raised-2:#EAF0EE;
+    --line:#D3DCD9;
+    --line-soft:#E3E9E7;
+    --text:#16211D;
+    --text-dim:#51625C;
+    --text-faint:#84958E;
+    --amber:#C1791E;
+    --amber-dim:#DCAD6E;
+    --teal:#1B7A8C;
+    --teal-dim:#63A6B2;
+    --danger:#B14B34;
     --radius-s:3px;
     --radius-m:6px;
     --font-display:'Space Grotesk', 'Futura', 'Century Gothic', sans-serif;
@@ -88,7 +88,7 @@
     display:flex; align-items:center; justify-content:center;
     font-family:var(--font-display); font-weight:700; font-size:14px;
     color:var(--teal);
-    background:rgba(95,179,199,0.07);
+    background:rgba(27,122,140,0.08);
   }
   .brand-txt{line-height:1.2;}
   .brand-txt strong{display:block; font-family:var(--font-display); font-size:14.5px; font-weight:600; color:var(--text);}
@@ -133,7 +133,7 @@
     display:flex; align-items:center; gap:7px;
     font-family:var(--font-mono); font-size:10.5px; color:var(--text-faint);
   }
-  .dot{width:6px; height:6px; border-radius:50%; background:#5fc781; box-shadow:0 0 6px #5fc78199; flex:0 0 auto;}
+  .dot{width:6px; height:6px; border-radius:50%; background:#2E9E5B; box-shadow:0 0 6px #2e9e5b66; flex:0 0 auto;}
   .rail-social{display:flex; gap:8px;}
   .rail-social a{
     width:32px; height:32px; border:1px solid var(--line); border-radius:var(--radius-m);
@@ -201,7 +201,7 @@
     padding:11px 18px; border-radius:var(--radius-m); text-decoration:none; cursor:pointer;
     border:1px solid var(--line);
   }
-  .btn-primary{background:var(--amber); color:#1a1104; border-color:var(--amber);}
+  .btn-primary{background:var(--amber); color:#FFFFFF; border-color:var(--amber);}
   .btn-ghost{background:transparent; color:var(--text); }
   .btn-ghost:hover{border-color:var(--teal-dim); color:var(--teal);}
   .btn svg{width:14px; height:14px;}
@@ -212,7 +212,7 @@
 
   .netviz{width:100%; height:auto; overflow:visible;}
   .netviz .edge{stroke:var(--line); stroke-width:1; fill:none;}
-  .netviz .edge-live{stroke:var(--teal-dim); stroke-width:1.2; fill:none; stroke-dasharray:4 5; animation:dash 5.5s linear infinite;}
+  .netviz .edge-live{stroke:var(--teal); stroke-width:1.2; fill:none; stroke-dasharray:4 5; animation:dash 5.5s linear infinite;}
   @keyframes dash{to{stroke-dashoffset:-90;}}
   .netviz .node-ring{fill:var(--bg-raised); stroke:var(--line); stroke-width:1;}
   .netviz .node-core{fill:var(--bg-raised-2); stroke:var(--amber); stroke-width:1.4;}
@@ -234,7 +234,7 @@
   .profil-block .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}
   .mtag{
     font-family:var(--font-mono); font-size:11px; color:var(--teal);
-    border:1px solid var(--teal-dim); padding:5px 10px; border-radius:20px; background:rgba(95,179,199,.06);
+    border:1px solid var(--teal-dim); padding:5px 10px; border-radius:20px; background:rgba(27,122,140,.07);
   }
 
   /* ---------- generic cards ---------- */
@@ -416,6 +416,9 @@
         <a href="https://www.linkedin.com/in/thomas-popelka-9a8055388" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
+        <a href="https://github.com/Ptan07" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.16.69-3.83-1.34-3.83-1.34-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.73.4-1.23.72-1.51-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.16a10.9 10.9 0 0 1 5.72 0c2.18-1.47 3.14-1.16 3.14-1.16.62 1.57.23 2.73.11 3.02.73.79 1.17 1.8 1.17 3.04 0 4.35-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1 0 1.52-.01 2.74-.01 3.11 0 .3.2.66.79.55A11.03 11.03 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5Z"/></svg>
+        </a>
         <a href="mailto:Thomas.Popelka@etu.univ-smb.fr" aria-label="Email">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="5" width="17" height="14" rx="1.5"/><path d="M4 6.5 12 13l8-6.5"/></svg>
         </a>
@@ -446,6 +449,10 @@
               <svg viewBox="0 0 24 24" fill="currentColor" style="width:13px;height:13px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
               LinkedIn
             </a>
+            <a class="btn btn-ghost" href="https://github.com/Ptan07" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px;"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.16.69-3.83-1.34-3.83-1.34-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.73.4-1.23.72-1.51-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.16a10.9 10.9 0 0 1 5.72 0c2.18-1.47 3.14-1.16 3.14-1.16.62 1.57.23 2.73.11 3.02.73.79 1.17 1.8 1.17 3.04 0 4.35-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1 0 1.52-.01 2.74-.01 3.11 0 .3.2.66.79.55A11.03 11.03 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5Z"/></svg>
+              GitHub
+            </a>
             <button class="btn btn-ghost" onclick="showPage('contact')">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3.5 5.5h17v13h-17z"/><path d="M4 6.5 12 13l8-6.5"/></svg>
               Me contacter
@@ -471,7 +478,11 @@
           <path class="edge" d="M300 250 L330 300"/>
 
           <circle class="node-core" cx="190" cy="170" r="34"/>
-          <text class="core-txt" x="190" y="175" text-anchor="middle">TP</text>
+          <g stroke="var(--amber)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M178 178 190 158 202 178Z"/>
+            <circle cx="190" cy="158" r="2.4" fill="var(--amber)" stroke="none"/>
+            <path d="M181 184h18M177 178a13 13 0 0 1 26 0" />
+          </g>
 
           <circle class="node-ring" cx="80" cy="90" r="20"/>
           <text x="80" y="94" text-anchor="middle">RÉS</text>
@@ -805,6 +816,10 @@
           <div class="crow">
             <svg viewBox="0 0 24 24" fill="currentColor" style="width:15px;height:15px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             <div><span>linkedin</span><b><a href="https://www.linkedin.com/in/thomas-popelka-9a8055388" target="_blank" rel="noopener noreferrer">thomas-popelka-9a8055388</a></b></div>
+          </div>
+          <div class="crow">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:15px;height:15px;"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.16.69-3.83-1.34-3.83-1.34-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.73.4-1.23.72-1.51-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.16a10.9 10.9 0 0 1 5.72 0c2.18-1.47 3.14-1.16 3.14-1.16.62 1.57.23 2.73.11 3.02.73.79 1.17 1.8 1.17 3.04 0 4.35-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1 0 1.52-.01 2.74-.01 3.11 0 .3.2.66.79.55A11.03 11.03 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5Z"/></svg>
+            <div><span>github</span><b><a href="https://github.com/Ptan07" target="_blank" rel="noopener noreferrer">github.com/Ptan07</a></b></div>
           </div>
         </div>
 
