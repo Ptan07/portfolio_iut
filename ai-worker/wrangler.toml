@@ -1,0 +1,21 @@
+name = "portfolio-ia"
+main = "worker.js"
+compatibility_date = "2025-09-01"
+
+[vars]
+# Sites autorisés à interroger l'agent (séparés par des virgules).
+# Ajoute "http://localhost:8000" pour tester en local.
+ALLOWED_ORIGINS = "https://ptan07.github.io"
+MODEL = "claude-haiku-5-5"
+
+# 10 questions par minute et par adresse IP
+[[ratelimits]]
+name = "RATE_LIMITER"
+namespace_id = "1001"
+
+  [ratelimits.simple]
+  limit = 10
+  period = 60
+
+# La clé API n'est PAS ici : elle s'ajoute comme secret
+#   npx wrangler secret put ANTHROPIC_API_KEY
