@@ -19,7 +19,7 @@ Tant que le Worker n'est pas branché, le terminal fonctionne quand même en **m
 ### Option A — depuis le site de Cloudflare (sans rien installer)
 
 1. Crée un compte gratuit sur https://dash.cloudflare.com.
-2. **Workers & Pages → Create → Worker**, nomme-le `portfolio-ia`, puis **Deploy**.
+2. **Workers & Pages → Create → Worker**, nomme-le `portfolio-iut`, puis **Deploy**.
 3. **Edit code** : remplace tout le code par le contenu de `worker.js`, puis **Deploy**.
 4. Dans le Worker, onglet **Settings → Bindings → Add → Workers AI**, nom de la variable : `AI`.
 5. Dans **Settings → Variables and Secrets**, ajoute une variable `ALLOWED_ORIGINS` = `https://ptan07.github.io`.
@@ -32,14 +32,14 @@ npx wrangler login     # ouvre le navigateur pour te connecter à Cloudflare
 npx wrangler deploy
 ```
 
-Dans les deux cas, tu obtiens une adresse du type `https://portfolio-ia.<ton-compte>.workers.dev`.
+Dans les deux cas, tu obtiens une adresse du type `https://portfolio-iut.<ton-compte>.workers.dev`.
 
 ## 2. Brancher le site
 
 Dans `assets/config.js`, mets l'adresse du Worker :
 
 ```js
-window.PORTFOLIO_AI_ENDPOINT = "https://portfolio-ia.<ton-compte>.workers.dev";
+window.PORTFOLIO_AI_ENDPOINT = "https://portfolio-iut.<ton-compte>.workers.dev";
 ```
 
 Publie sur GitHub : `neofetch` affiche alors « Agent IA : en ligne ».
