@@ -1,6 +1,8 @@
 name = "portfolio-iut"
 main = "worker.js"
 compatibility_date = "2025-09-01"
+# Adresse publique https://portfolio-iut.tpopelka024.workers.dev
+workers_dev = true
 
 # Moteur GRATUIT : Cloudflare Workers AI (aucune clé à créer)
 [ai]

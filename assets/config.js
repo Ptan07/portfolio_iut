@@ -9,4 +9,4 @@
    ligne » à partir des infos du portfolio (pas d'IA).
    ⚠ Ne mets JAMAIS ta clé API ici : ce fichier est public.
    ========================================================== */
-window.PORTFOLIO_AI_ENDPOINT = "";
+window.PORTFOLIO_AI_ENDPOINT = "https://portfolio-iut.tpopelka024.workers.dev";
