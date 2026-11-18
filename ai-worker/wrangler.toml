@@ -2,13 +2,20 @@ name = "portfolio-ia"
 main = "worker.js"
 compatibility_date = "2025-09-01"
 
+# Moteur GRATUIT : Cloudflare Workers AI (aucune clé à créer)
+[ai]
+binding = "AI"
+
 [vars]
 # Sites autorisés à interroger l'agent (séparés par des virgules).
 # Ajoute "http://localhost:8000" pour tester en local.
 ALLOWED_ORIGINS = "https://ptan07.github.io"
+# Modèle Workers AI utilisé (gratuit dans la limite du quota quotidien)
+CF_MODEL = "@cf/mistralai/mistral-small-3.1-24b-instruct"
+# Modèle Claude, utilisé seulement si tu ajoutes le secret ANTHROPIC_API_KEY
 MODEL = "claude-haiku-5-5"
 
-# 10 questions par minute et par adresse IP
+# 10 questions par minute et par adresse IP (protège ton quota gratuit)
 [[ratelimits]]
 name = "RATE_LIMITER"
 namespace_id = "1001"
@@ -17,5 +24,5 @@ namespace_id = "1001"
   limit = 10
   period = 60
 
-# La clé API n'est PAS ici : elle s'ajoute comme secret
+# OPTIONNEL — passer sur Claude (payant, meilleures réponses) :
 #   npx wrangler secret put ANTHROPIC_API_KEY

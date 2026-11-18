@@ -1,13 +1,20 @@
 /* ==========================================================
    Agent IA du portfolio — Cloudflare Worker
    ----------------------------------------------------------
-   Reçoit les questions du terminal, les envoie à l'API Claude
+   Reçoit les questions du terminal, les envoie à un modèle d'IA
    avec le profil de Thomas, et renvoie la réponse en streaming.
-   La clé API reste ici, côté serveur (secret ANTHROPIC_API_KEY),
-   jamais dans le site public.
+
+   Deux moteurs possibles :
+   - GRATUIT (par défaut) : Cloudflare Workers AI, liaison « AI ».
+     Aucune clé à créer, quota gratuit quotidien chez Cloudflare.
+   - PAYANT (optionnel) : Claude d'Anthropic. Il suffit d'ajouter
+     le secret ANTHROPIC_API_KEY et c'est lui qui sera utilisé.
    ========================================================== */
 
-const DEFAULT_MODEL = 'claude-haiku-5-5';
+const DEFAULT_CLAUDE_MODEL = 'claude-haiku-5-5';
+// Modèles Workers AI : le premier est essayé, le second sert de secours
+const DEFAULT_CF_MODEL = '@cf/mistralai/mistral-small-3.1-24b-instruct';
+const FALLBACK_CF_MODEL = '@cf/meta/llama-3.1-8b-instruct-fast';
 const MAX_TOKENS = 400;
 
 const PROFILE = `
@@ -87,7 +94,7 @@ export default {
     if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors });
     if (request.method !== 'POST') return json({ error: 'Utilisez POST.' }, 405, cors);
     if (!allowed.includes(origin)) return json({ error: 'Origine non autorisée.' }, 403, cors);
-    if (!env.ANTHROPIC_API_KEY) return json({ error: 'Clé API absente côté serveur.' }, 500, cors);
+    if (!env.ANTHROPIC_API_KEY && !env.AI) return json({ error: 'Aucun moteur IA configuré (liaison AI ou clé ANTHROPIC_API_KEY).' }, 500, cors);
 
     // Limite de débit par adresse IP (si la liaison RATE_LIMITER est configurée)
     if (env.RATE_LIMITER) {
@@ -101,6 +108,19 @@ export default {
     const messages = sanitize(body && body.messages);
     if (!messages) return json({ error: 'Format de conversation invalide.' }, 400, cors);
 
+    const sse = { ...cors, 'content-type': 'text/event-stream; charset=utf-8', 'cache-control': 'no-cache' };
+
+    // --- Moteur gratuit : Cloudflare Workers AI ---
+    if (!env.ANTHROPIC_API_KEY) {
+      try {
+        return new Response(await runWorkersAI(env, messages), { headers: sse });
+      } catch (e) {
+        console.log('Erreur Workers AI', e && e.message);
+        return json({ error: "L'agent est indisponible pour le moment." }, 502, cors);
+      }
+    }
+
+    // --- Moteur payant : Claude (Anthropic) ---
     const upstream = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
@@ -109,7 +129,7 @@ export default {
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-        model: env.MODEL || DEFAULT_MODEL,
+        model: env.MODEL || DEFAULT_CLAUDE_MODEL,
         max_tokens: MAX_TOKENS,
         system: SYSTEM,
         messages,
@@ -124,11 +144,65 @@ export default {
     }
 
     // On relaie le flux SSE tel quel au navigateur
-    return new Response(upstream.body, {
-      headers: { ...cors, 'content-type': 'text/event-stream; charset=utf-8', 'cache-control': 'no-cache' },
-    });
+    return new Response(upstream.body, { headers: sse });
   },
 };
+
+/* Appelle Workers AI (essaie le modèle choisi, puis le modèle de secours)
+   et convertit son flux au format attendu par le terminal. */
+async function runWorkersAI(env, messages) {
+  const models = [env.CF_MODEL || DEFAULT_CF_MODEL, FALLBACK_CF_MODEL].filter((m, i, a) => a.indexOf(m) === i);
+  let lastError;
+  for (const model of models) {
+    try {
+      const stream = await env.AI.run(model, {
+        messages: [{ role: 'system', content: SYSTEM }, ...messages],
+        max_tokens: MAX_TOKENS,
+        stream: true,
+      });
+      return toTerminalStream(stream);
+    } catch (e) {
+      lastError = e;
+      console.log('Workers AI : échec avec', model, e && e.message);
+    }
+  }
+  throw lastError;
+}
+
+/* Workers AI envoie « data: {"response":"…"} » (ou le format OpenAI
+   « choices[0].delta.content ») ; le terminal attend des événements
+   « content_block_delta ». On traduit au vol. */
+function toTerminalStream(stream) {
+  const enc = new TextEncoder();
+  const dec = new TextDecoder();
+  let buf = '';
+  const emit = (ctrl, text) => ctrl.enqueue(enc.encode(
+    'event: content_block_delta\ndata: ' + JSON.stringify({ type: 'content_block_delta', index: 0, delta: { type: 'text_delta', text } }) + '\n\n'));
+  const handle = (part, ctrl) => {
+    for (const line of part.split('\n')) {
+      if (!line.startsWith('data:')) continue;
+      const data = line.slice(5).trim();
+      if (!data || data === '[DONE]') continue;
+      try {
+        const j = JSON.parse(data);
+        const text = typeof j.response === 'string' ? j.response : j.choices && j.choices[0] && j.choices[0].delta && j.choices[0].delta.content;
+        if (text) emit(ctrl, text);
+      } catch { /* morceau incomplet ou non JSON : ignoré */ }
+    }
+  };
+  return stream.pipeThrough(new TransformStream({
+    transform(chunk, ctrl) {
+      buf += dec.decode(chunk, { stream: true }).replace(/\r/g, '');
+      const parts = buf.split('\n\n');
+      buf = parts.pop();
+      for (const p of parts) handle(p, ctrl);
+    },
+    flush(ctrl) {
+      if (buf.trim()) handle(buf, ctrl);
+      ctrl.enqueue(enc.encode('event: message_stop\ndata: {"type":"message_stop"}\n\n'));
+    },
+  }));
+}
 
 /* Ne garde que des messages valides : 10 derniers, rôles alternés,
    longueur limitée, et la conversation doit finir par l'utilisateur. */
